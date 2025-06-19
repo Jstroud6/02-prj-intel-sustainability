@@ -189,10 +189,15 @@ img {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 1px 1px 5px #ccc;
-  width: 300px; /* Increased width for bigger images */
+  width: 300px;
   box-sizing: border-box;
-  flex: 0 0 300px; /* Prevent cards from shrinking or growing */
-  position: relative; /* Needed for overlay positioning */
+  flex: 0 0 300px;
+  position: relative;
+}
+
+/* Make the border thinner for the last five images/cards */
+.timeline-row > div:nth-child(n+5) {
+  border-width: 0.5px; /* Smaller border for last five cards */
 }
 
 /* Overlay container */
