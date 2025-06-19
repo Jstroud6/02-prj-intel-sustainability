@@ -1,6 +1,6 @@
 /* 1. Header styling */
 header {
-  background-color: #4CAF50; /* Green background */
+  background-color: #0071c5; /* Intel blue */
   color: white; /* White text */
   padding: 20px; /* Space inside header */
   text-align: center; /* Center the text */
@@ -27,10 +27,9 @@ footer {
 nav {
   background-color: #222; /* Dark background for nav */
   padding: 10px 0;
-  /* Use Flexbox to arrange links in a row */
   display: flex;
-  justify-content: center; /* Center the links horizontally */
-  align-items: center;     /* Center the links vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 nav ul {
@@ -54,6 +53,19 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #4CAF50; /* Green background on hover */
   border-radius: 4px;
+}
+
+/* Make the navigation bar stack vertically on small screens */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column; /* Stack nav content vertically */
+    padding: 10px 0;
+  }
+  nav ul {
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Less space between links */
+    align-items: center; /* Center links */
+  }
 }
 
 /* 4. Main content area */
@@ -88,7 +100,8 @@ aside {
 body {
   font-family: Arial, Verdana, sans-serif; /* Easy-to-read font */
   color: #222; /* Dark text */
-  background-color: #f0f8ff; /* Light blue background */
+  /* Use a much lighter green gradient background */
+  background: linear-gradient(to bottom right, #f6fff6, #b6fcb6 80%);
 }
 
 h1, h2, h3 {
