@@ -1,6 +1,6 @@
 /* 1. Header styling */
 header {
-  background-color: #0071c5; /* Intel blue */
+  background-color: #478ec5; /* Intel blue */
   color: white; /* White text */
   padding: 20px; /* Space inside header */
   text-align: center; /* Center the text */
@@ -100,8 +100,8 @@ aside {
 body {
   font-family: Arial, Verdana, sans-serif; /* Easy-to-read font */
   color: #222; /* Dark text */
-  /* Use a much lighter green gradient background */
-  background: linear-gradient(to bottom right, #f6fff6, #b6fcb6 80%);
+  /* Use a much lighter blue gradient background */
+  background: linear-gradient(to bottom right, #e6f0ff, #b3d8ff 80%);
 }
 
 h1, h2, h3 {
@@ -146,4 +146,94 @@ img {
   content: "";
   display: table;
   clear: both;
+}
+
+/* Flexbox container for timeline cards */
+.timeline-row {
+  display: flex; /* Arrange children in a row */
+  flex-wrap: nowrap; /* Do not wrap to next line */
+  gap: 20px; /* Space between cards */
+  justify-content: flex-start; /* Align cards to the left */
+  align-items: flex-start; /* Align cards to the top */
+  margin-bottom: 30px; /* Space below the row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding-bottom: 10px; /* Space for scrollbar */
+  /* Center the container horizontally */
+  margin-left: auto;
+  margin-right: auto;
+  /* Set width to show exactly 4 cards + 3 gaps */
+  width: 1320px; /* 4 cards * 300px + 3 gaps (3*20px) = 1320px */
+  max-width: 100vw; /* Prevent overflow on very small screens */
+}
+
+/* Make timeline cards look like cards and limit their width */
+.timeline-row > div {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 1px 1px 5px #ccc;
+  width: 300px; /* Increased width for bigger images */
+  box-sizing: border-box;
+  flex: 0 0 300px; /* Prevent cards from shrinking or growing */
+  position: relative; /* Needed for overlay positioning */
+}
+
+/* Overlay container */
+.timeline-row > div .img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* Semi-transparent black */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Hide overlay by default */
+  transition: opacity 0.3s;
+  border-radius: 8px; /* Match card corners */
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  pointer-events: none; /* Prevent overlay from blocking mouse events */
+}
+
+/* Show overlay on hover */
+.timeline-row > div:hover .img-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Make sure the image is below the overlay and bigger */
+.timeline-row > div img {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  /* Height will adjust automatically to width */
+}
+
+/* Show only 4 cards at a time on large screens */
+.timeline-row {
+  max-width: 1320px; /* 4 cards * 300px + 3 gaps (3*20px) = 1320px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive: show fewer cards on smaller screens */
+@media (max-width: 1350px) {
+  .timeline-row {
+    max-width: 990px; /* 3 cards */
+  }
+}
+@media (max-width: 1020px) {
+  .timeline-row {
+    max-width: 660px; /* 2 cards */
+  }
+}
+@media (max-width: 700px) {
+  .timeline-row {
+    max-width: 320px; /* 1 card */
+  }
 }
