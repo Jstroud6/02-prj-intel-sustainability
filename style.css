@@ -98,13 +98,13 @@ aside {
 
 /* 7. Typography */
 body {
-  font-family: Arial, Verdana, sans-serif; /* Easy-to-read font */
+  font-family: 'Open Sans', Arial, Verdana, sans-serif; /* Use Open Sans for body */
   color: #222; /* Dark text */
-  /* Use a much lighter blue gradient background */
   background: linear-gradient(to bottom right, #e6f0ff, #b3d8ff 80%);
 }
 
 h1, h2, h3 {
+  font-family: 'Raleway', Arial, Verdana, sans-serif; /* Use Raleway for headings */
   color: #4CAF50; /* Green headings */
 }
 
